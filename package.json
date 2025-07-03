@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "echo 'No build step required'",
+    "start": "node functions/Starter function ffmpeg/index.js",
+    "dev": "nodemon functions/Starter function ffmpeg/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
