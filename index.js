@@ -14,7 +14,7 @@ module.exports = async function (req, res) {
 
       const input1 = files.video1.filepath;
       const input2 = files.video2.filepath;
-      const output = "/tmp/merged.mp4";
+      const output = "/tmp/merged.webm"; // Change output format to WebM
 
       // Merge using FFmpeg
       const command = `ffmpeg -i ${input1} -i ${input2} -filter_complex "[0:v:0][0:a:0][1:v:0][1:a:0]concat=n=2:v=1:a=1[outv][outa]" -map "[outv]" -map "[outa]" ${output}`;
@@ -26,7 +26,7 @@ module.exports = async function (req, res) {
         }
 
         const mergedFile = fs.readFileSync(output);
-        res.setHeader("Content-Type", "video/mp4");
+        res.setHeader("Content-Type", "video/webm"); // Update Content-Type to WebM
         res.send(mergedFile);
       });
     });
